@@ -236,12 +236,14 @@ public class PlayerCharacterController : MonoBehaviour
     void HandleCharacterMovement()
     {
         // horizontal character rotation
+        if(m_InputHandler.axisOptionCamera == AxisOption.Both || m_InputHandler.axisOptionCamera == AxisOption.OnlyHorizontal)
         {
             // rotate the transform with the input speed around its local Y axis
             transform.Rotate(new Vector3(0f, (m_InputHandler.GetLookInputsHorizontal() * rotationSpeed * RotationMultiplier), 0f), Space.Self);
         }
 
         // vertical camera rotation
+        if (m_InputHandler.axisOptionCamera == AxisOption.Both || m_InputHandler.axisOptionCamera == AxisOption.OnlyVertical)
         {
             // add vertical inputs to the camera's vertical angle
             m_CameraVerticalAngle += m_InputHandler.GetLookInputsVertical() * rotationSpeed * RotationMultiplier;

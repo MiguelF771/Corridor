@@ -1,7 +1,14 @@
 ﻿using UnityEngine;
 
+public enum AxisOption
+{
+    Both, // Use both
+    OnlyHorizontal, // Only horizontal
+    OnlyVertical // Only vertical
+}
 public class PlayerInputHandler : MonoBehaviour
 {
+    public AxisOption axisOptionCamera;
     [Tooltip("Sensitivity multiplier for moving the camera around")]
     public float lookSensitivity = 1f;
     [Tooltip("Additional sensitivity multiplier for WebGL")]
