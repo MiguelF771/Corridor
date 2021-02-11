@@ -1,18 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Door : MonoBehaviour
 {
     [SerializeField] private Transform _door1;
     [SerializeField] private Transform _door2;
-    [SerializeField] [Range(0f, 1f)] private float _time;
+    [SerializeField] [Range(0f, 0.1f)] private float _time;
     [SerializeField] bool _isOpen;
     [SerializeField] bool _disableEnd;
-
-    private IEnumerator OpenAnCloseDoorCorutine(Transform door,float time)
+    private IEnumerator OpenAnCloseDoorCorutine(Transform door,float time, float moveSpacing)
     {
         var startPosition = door.localPosition;
-        var endPosition = (_isOpen)? startPosition / 3: startPosition * 3;
+        var endPosition = new Vector3(startPosition.x,
+                                        startPosition.y + moveSpacing,
+                                        startPosition.z);
         var pos = 0f;
         while (pos <= 1)
         {
@@ -20,26 +23,27 @@ public class Door : MonoBehaviour
             pos += .01f;
             yield return new WaitForSeconds(time);
         }
-        gameObject.SetActive(!_disableEnd);
+        gameObject.SetActive(!(_disableEnd && _isOpen));
     }
 
     public void OpenDoor()
     {
         if (!_isOpen)
         {
-            StartCoroutine(OpenAnCloseDoorCorutine(_door1, _time));
-            StartCoroutine(OpenAnCloseDoorCorutine(_door2, _time));
             _isOpen = true;
+            StartCoroutine(OpenAnCloseDoorCorutine(_door1, _time,3));
+            StartCoroutine(OpenAnCloseDoorCorutine(_door2, _time,-3));
         }
     }
 
     public void CloseDoor()
     {
+        gameObject.SetActive(true);
         if (_isOpen)
         {
-            StartCoroutine(OpenAnCloseDoorCorutine(_door1, _time));
-            StartCoroutine(OpenAnCloseDoorCorutine(_door2, _time));
             _isOpen = false;
+            StartCoroutine(OpenAnCloseDoorCorutine(_door1, _time,-3));
+            StartCoroutine(OpenAnCloseDoorCorutine(_door2, _time,3));
         }
     }
 }

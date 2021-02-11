@@ -27,6 +27,7 @@ public class GameFlowManager : MonoBehaviour
 
 
     public bool gameIsEnding { get; private set; }
+    public bool gameIsRegister { get; private set; }
 
     PlayerCharacterController m_Player;
     NotificationHUDManager m_NotificationHUDManager;
@@ -60,8 +61,7 @@ public class GameFlowManager : MonoBehaviour
                 SceneManager.LoadScene(m_SceneToLoad);
                 gameIsEnding = false;
             }
-        }
-        else
+        }else
         {
             if (m_ObjectiveManager.AreAllObjectivesCompleted())
                 EndGame(true);
