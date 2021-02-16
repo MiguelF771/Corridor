@@ -14,9 +14,4 @@ public class SelectRoomTest : MonoBehaviour
         }else
             testRooms[1].SetActive(true);
     }
-
-    public void lowSpeed()
-    {
-        player.maxSpeedOnGround = 1.4f;
-    }
 }

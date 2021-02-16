@@ -18,8 +18,8 @@ MonoBehaviour:
     Spanish: Seleccionar idioma
   - English: Continue
     Spanish: Continuar
-  - English: 'Name:'
-    Spanish: 'Nombre:'
+  - English: 'Username:'
+    Spanish: 'Nombre de usuario:'
   - English: 'Age:'
     Spanish: 'Edad:'
   - English: 'Gender:'
@@ -34,3 +34,13 @@ MonoBehaviour:
     Spanish: Usa W para avanzar
   - English: Rotate by moving the mouse
     Spanish: Girar moviendo el mouse
+  - English: Good job!
+    Spanish: " \xA1Buen trabajo!"
+  - English: Use W to go to X
+    Spanish: Usa W para ir a X
+  - English: Go to the exit
+    Spanish: Ve a la salida
+  - English: To start the experience, walk through the corridor in front of you.
+      You will recive more details about the mission at the end of the corridor.
+    Spanish: "Para empezar la experiencia camina por el corredor que esta en frente
+      tuyo. Recibiras m\xE1s informacion de la mision al final del pasillo."

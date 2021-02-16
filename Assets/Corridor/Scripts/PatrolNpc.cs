@@ -5,52 +5,41 @@ using UnityEngine.AI;
 
 public class PatrolNpc : MonoBehaviour
 {
+    private int pos = 0;
+    private bool IsWalking = false;
     public Transform[] points;
     private int destPoint = 0;
     private NavMeshAgent agent;
+    [SerializeField]
+    public Animator animator;
 
-
-    void Start()
+    private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-
-        // Disabling auto-braking allows for continuous movement
-        // between points (ie, the agent doesn't slow down as it
-        // approaches a destination point).
-        agent.autoBraking = false;
-
-        GotoNextPoint();
     }
-
-
     void GotoNextPoint()
     {
-        // Returns if no points have been set up
         if (points.Length == 0)
             return;
-
-        // Set the agent to go to the currently selected destination.
         agent.destination = points[destPoint].position;
-
-        // Choose the next point in the array as the destination,
-        // cycling to the start if necessary.
         destPoint = (destPoint + 1) % points.Length;
     }
-
-    int pos = 0;
     void Update()
     {
-        // Choose the next destination point when the agent gets
-        // close to the current one.
-        if (pos < points.Length)
+        if (pos < points.Length && IsWalking)
         {
             if (!agent.pathPending && agent.remainingDistance < 0.5f)
             {
                 GotoNextPoint();
                 pos++;
             }
-        }
-        else
-            gameObject.SetActive(false);
+        }else if(!(pos < points.Length)) gameObject.SetActive(false);
+    }
+    public void StartWalking()
+    {
+        agent.autoBraking = false;
+        GotoNextPoint();
+        animator.SetBool("IsWalking", true);
+        IsWalking = true;
     }
 }

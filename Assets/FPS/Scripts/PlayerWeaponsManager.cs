@@ -172,7 +172,7 @@ public class PlayerWeaponsManager : MonoBehaviour
         UpdateWeaponSwitching();
 
         // Set final weapon socket position based on all the combined animation influences
-        weaponParentSocket.localPosition = m_WeaponMainLocalPosition + m_WeaponBobLocalPosition + m_WeaponRecoilLocalPosition;
+        weaponParentSocket.localPosition = Vector3.zero;//m_WeaponMainLocalPosition + m_WeaponBobLocalPosition + m_WeaponRecoilLocalPosition;
     }
 
     // Sets the FOV of the main camera and the weapon camera simultaneously
