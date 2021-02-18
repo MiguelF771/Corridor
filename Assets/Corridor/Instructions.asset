@@ -36,11 +36,13 @@ MonoBehaviour:
     Spanish: Girar moviendo el mouse
   - English: Good job!
     Spanish: " \xA1Buen trabajo!"
-  - English: Use W to move to the center
-    Spanish: Usa W para moverte al centro
+  - English: Other players may be waiting
+    Spanish: Otros jugadores pueden estar esperandote
   - English: Go to the exit
     Spanish: Ve a la salida
   - English: To start the experience, walk through the corridor in front of you.
       You will recive more details about the mission at the end of the corridor.
     Spanish: "Para empezar la experiencia camina por el corredor que esta en frente
       tuyo. Recibiras m\xE1s informacion de la mision al final del pasillo."
+  - English: Thanks for playing.
+    Spanish: Gracias por jugar.

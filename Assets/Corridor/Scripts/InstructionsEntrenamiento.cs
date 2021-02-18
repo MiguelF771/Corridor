@@ -22,7 +22,12 @@ public class InstructionsEntrenamiento : MonoBehaviour
     {
         startCorridor = true;
     }
+    public bool isMidle = false;
 
+    public void Midle()
+    {
+        isMidle = true;
+    }
     IEnumerator StartPhase()
     {
         images[2].SetActive(true);
@@ -52,23 +57,22 @@ public class InstructionsEntrenamiento : MonoBehaviour
                 return Input.GetKeyDown(KeyCode.W);
             });
         }
-        //Good job
         player.maxSpeedOnGround = 1.4f;
+
+        yield return new WaitUntil(()=> {
+            return isMidle;
+        });
+        //Good job
         images[0].SetActive(false);
         text.text = Instructions.instance.GetInstruction(10);
-        yield return new WaitForSeconds(1f);
-
-        text.text = Instructions.instance.GetInstruction(11);
-        yield return new WaitForSeconds(3f);
-
-        text.text = "";
-        images[2].SetActive(false);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1.5f);
 
         images[2].SetActive(true);
+        images[3].SetActive(true);
         text.text = Instructions.instance.GetInstruction(12);
         yield return new WaitForSeconds(3f);
 
+        images[3].SetActive(false);
         images[2].SetActive(false);
         text.text = "";
         yield return new WaitUntil(() =>
@@ -80,6 +84,8 @@ public class InstructionsEntrenamiento : MonoBehaviour
         text.text = Instructions.instance.GetInstruction(13);
         player.maxSpeedOnGround = 0;
         yield return new WaitForSeconds(8f);
+        text.text = Instructions.instance.GetInstruction(11);
+        yield return new WaitForSeconds(5f);
 
         player.maxSpeedOnGround = 1.4f;
         principalDoor.OpenDoor();

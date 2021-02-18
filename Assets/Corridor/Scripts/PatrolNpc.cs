@@ -18,7 +18,8 @@ public class PatrolNpc : MonoBehaviour
 
     [SerializeField]
     private string[] names;
-
+    [SerializeField]
+    private AlertsInUI alert;
 
     private void Start()
     {
@@ -41,7 +42,12 @@ public class PatrolNpc : MonoBehaviour
                 GotoNextPoint();
                 pos++;
             }
-        }else if(!(pos < points.Length)) gameObject.SetActive(false);
+        }
+        else if (!(pos < points.Length)) 
+        {
+            alert.ShowAlert($"Player {namePlayer.text} disconected",1.5f);
+            gameObject.SetActive(false);
+        }
     }
     public void StartWalking()
     {
