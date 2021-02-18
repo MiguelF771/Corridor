@@ -7,8 +7,6 @@ public class InstructionsEntrenamiento : MonoBehaviour
     [SerializeField]
     private PlayerCharacterController player;
     [SerializeField]
-    private GameObject x;
-    [SerializeField]
     private TextMeshProUGUI text;
     [SerializeField]
     private GameObject[] images;
@@ -27,6 +25,7 @@ public class InstructionsEntrenamiento : MonoBehaviour
 
     IEnumerator StartPhase()
     {
+        images[2].SetActive(true);
         text.text = Instructions.instance.GetInstruction(7);
         yield return new WaitForSeconds(1.5f);
 
@@ -59,28 +58,30 @@ public class InstructionsEntrenamiento : MonoBehaviour
         text.text = Instructions.instance.GetInstruction(10);
         yield return new WaitForSeconds(1f);
 
-        //X
-        x.SetActive(true);
         text.text = Instructions.instance.GetInstruction(11);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(3f);
 
         text.text = "";
-        yield return new WaitUntil(() =>
-        {
-            return !x.activeSelf;
-        });
+        images[2].SetActive(false);
+        yield return new WaitForSeconds(3);
 
+        images[2].SetActive(true);
         text.text = Instructions.instance.GetInstruction(12);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(3f);
 
+        images[2].SetActive(false);
         text.text = "";
         yield return new WaitUntil(() =>
         {
             return startCorridor;
         });
 
+        images[2].SetActive(true);
         text.text = Instructions.instance.GetInstruction(13);
-        yield return new WaitForSeconds(5f);
+        player.maxSpeedOnGround = 0;
+        yield return new WaitForSeconds(8f);
+
+        player.maxSpeedOnGround = 1.4f;
         principalDoor.OpenDoor();
 
         gameObject.SetActive(false);

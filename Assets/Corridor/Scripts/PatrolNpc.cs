@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using TMPro;
 
 public class PatrolNpc : MonoBehaviour
 {
@@ -11,11 +12,18 @@ public class PatrolNpc : MonoBehaviour
     private int destPoint = 0;
     private NavMeshAgent agent;
     [SerializeField]
-    public Animator animator;
+    private Animator animator;
+    [SerializeField]
+    private TextMeshPro namePlayer;
+
+    [SerializeField]
+    private string[] names;
+
 
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        namePlayer.text = names[Random.Range(0,names.Length-1)];
     }
     void GotoNextPoint()
     {

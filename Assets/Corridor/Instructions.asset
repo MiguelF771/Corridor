@@ -36,8 +36,8 @@ MonoBehaviour:
     Spanish: Girar moviendo el mouse
   - English: Good job!
     Spanish: " \xA1Buen trabajo!"
-  - English: Use W to go to X
-    Spanish: Usa W para ir a X
+  - English: Use W to move to the center
+    Spanish: Usa W para moverte al centro
   - English: Go to the exit
     Spanish: Ve a la salida
   - English: To start the experience, walk through the corridor in front of you.
