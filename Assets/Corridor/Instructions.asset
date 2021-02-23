@@ -26,14 +26,14 @@ MonoBehaviour:
     Spanish: 'Genero:'
   - English: 'Nationality:'
     Spanish: 'Nacionalidad:'
-  - English: ' Enter correct values'
+  - English: ' Please enter correct values.'
     Spanish: Ingrese valores correctos
   - English: "Before you start, let\u2019s train your movements"
-    Spanish: ' Antes de empezar, vamos entrena tus movimientos'
+    Spanish: ' Antes de empezar, practica tus movimientos.'
   - English: 'Use W to advance '
     Spanish: Usa W para avanzar
   - English: Rotate by moving the mouse
-    Spanish: Girar moviendo el mouse
+    Spanish: Gira moviendo el mouse.
   - English: Good job!
     Spanish: " \xA1Buen trabajo!"
   - English: Other players may be waiting
@@ -41,8 +41,8 @@ MonoBehaviour:
   - English: Go to the exit
     Spanish: Ve a la salida
   - English: To start the experience, walk through the corridor in front of you.
-      You will recive more details about the mission at the end of the corridor.
-    Spanish: "Para empezar la experiencia camina por el corredor que esta en frente
-      tuyo. Recibiras m\xE1s informacion de la mision al final del pasillo."
-  - English: Thanks for playing.
-    Spanish: Gracias por jugar.
+      Be aware that other players may be present.
+    Spanish: Para empezar la experiencia camina por el corredor que esta en frente
+      tuyo. Ten en cuenta que otros jugadores podrian estar presentes.
+  - English: Thank you!
+    Spanish: "\xA1Gracias!"

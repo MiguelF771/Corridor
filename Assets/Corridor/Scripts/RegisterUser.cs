@@ -20,9 +20,6 @@ public class RegisterUser : MonoBehaviour
                                     inputs[3].text);
 
             GlobalStats.playerSaveStats.SetUser(user);
-#if UNITY_WEBGL && !UNITY_EDITOR
-            WebGLPlugins.SendJsonWeb(JsonUtility.ToJson(GlobalStats.playerSaveStats));
-#endif
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             instruct.SetActive(true);

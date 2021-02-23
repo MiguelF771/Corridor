@@ -84,8 +84,6 @@ public class InstructionsEntrenamiento : MonoBehaviour
         text.text = Instructions.instance.GetInstruction(13);
         player.maxSpeedOnGround = 0;
         yield return new WaitForSeconds(8f);
-        text.text = Instructions.instance.GetInstruction(11);
-        yield return new WaitForSeconds(5f);
 
         player.maxSpeedOnGround = 1.4f;
         principalDoor.OpenDoor();

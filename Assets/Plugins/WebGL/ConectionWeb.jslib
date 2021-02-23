@@ -1,7 +1,7 @@
 mergeInto(LibraryManager.library, {
 
    SendJsonWeb:function (text) {
-      var json = Pointer_stringify(text);
-      reciveUnityJson(json);
+      var data = JSON.parse(Pointer_stringify(text));
+      reciveUnityJson(data);
    },
 });
