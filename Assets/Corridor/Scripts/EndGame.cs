@@ -12,5 +12,8 @@ public class EndGame : MonoBehaviour
 #if UNITY_WEBGL && !UNITY_EDITOR
         WebGLPlugins.SendJsonWeb(JsonUtility.ToJson(GlobalStats.playerSaveStats));
 #endif
+#if UNITY_EDITOR
+        Debug.Log(JsonUtility.ToJson(GlobalStats.playerSaveStats));
+#endif
     }
 }

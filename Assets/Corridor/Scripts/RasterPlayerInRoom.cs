@@ -30,9 +30,9 @@ public class RasterPlayerInRoom : MonoBehaviour
         {
             var raster = new Raster
             {
-                x = player.transform.localPosition.x,
-                y = player.transform.localPosition.z,
-                rotation = player.transform.rotation.eulerAngles.y
+                x = player.transform.localPosition.x*-1,
+                y = player.transform.localPosition.z*-1,
+                rotation = player.transform.localRotation.eulerAngles.y
             };
             GlobalStats.playerSaveStats.AddRaster(testRoom, raster);
             yield return wait;

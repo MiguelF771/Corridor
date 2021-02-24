@@ -12,17 +12,16 @@ public enum TestRoom { A, B }
 [System.Serializable]
 public class PlayerSaveStats
 {
-    public UserData userData;
-    public List<Raster> testRoomA = new List<Raster>();
-    public List<Raster> testRoomB = new List<Raster>();
+    public UserData UserData;
+    public string RoomAgent;
+    public List<Raster> Agent = new List<Raster>();
+    public List<Raster> TestRoomA = new List<Raster>();
+    public List<Raster> TestRoomB = new List<Raster>();
 
     public void SetUser(UserData user)
     {
-        if (userData == null)
-            userData = user;
-#if UNITY_EDITOR
-        Debug.Log(user.Name + " registrado");
-#endif
+        if (UserData == null)
+            UserData = user;
     }
 
     public void AddRaster(TestRoom testRoom, Raster raster)
@@ -30,10 +29,10 @@ public class PlayerSaveStats
         switch (testRoom)
         {
             case TestRoom.A:
-                testRoomA.Add(raster);
+                TestRoomA.Add(raster);
                 break;
             case TestRoom.B:
-                testRoomB.Add(raster);
+                TestRoomB.Add(raster);
                 break;
         }
     }
